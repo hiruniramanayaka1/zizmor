@@ -28,6 +28,12 @@ jobs:
 
       - uses: astral-sh/setup-uv@v10.3.3
 
+      - name: Cache uv dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/uv
+          key: uv-${{ hashFiles('uv.lock') }}
+
       - name: try to refresh schemas
         run: |
           make refresh-schemas
@@ -67,6 +73,12 @@ jobs:
 
       - uses: astral-sh/setup-uv@v10.3.3
 
+      - name: Cache uv dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/uv
+          key: uv-${{ hashFiles('uv.lock') }}
+
       - name: try to refresh context capabilities
         run: |
           make webhooks-to-contexts
@@ -104,6 +116,12 @@ jobs:
           persist-credentials: false
 
       - uses: astral-sh/setup-uv@v10.3.3
+
+      - name: Cache uv dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/uv
+          key: uv-${{ hashFiles('uv.lock') }}
 
       - name: try to refresh CodeQL injection sinks
         run: |
@@ -143,6 +161,12 @@ jobs:
           persist-credentials: false
 
       - uses: astral-sh/setup-uv@v10.3.3
+
+      - name: Cache uv dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/uv
+          key: uv-${{ hashFiles('uv.lock') }}
 
       - name: try to refresh expression tests
         run: |
